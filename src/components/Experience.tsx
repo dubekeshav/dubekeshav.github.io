@@ -1,126 +1,102 @@
 import { motion } from 'framer-motion'
-import { Briefcase, GraduationCap } from 'lucide-react'
 
 const Experience = () => {
   const experiences = [
     {
-      title: 'Senior Data Scientist',
-      company: 'Tech Company',
-      period: '2023 - Present',
-      description:
-        'Leading ML initiatives and building scalable data pipelines. Mentoring junior team members.',
-      type: 'work',
+      title: 'Data Scientist',
+      company: 'Hartford Steam Boiler / Munich Re',
+      period: 'Jun 2025 - Dec 2025',
+      highlights: [
+        'Built an intelligent knowledge system that understands domain-specific documents (insurance standards, historical cases), helping teams make better underwriting decisions with transparent, fact-based recommendations.',
+        'Created a comprehensive evaluation framework for AI models, measuring accuracy and reliability with human feedback loops, ensuring production systems meet rigorous quality standards.',
+        'Developed a smart recommendation system that improved the quality of suggestions from 25% to 78%, directly supporting faster and more accurate risk assessments.',
+        'Optimized data pipelines for massive datasets using PySpark, achieving an 84% speedup and enabling rapid experimentation with large-scale data.',
+      ],
     },
     {
       title: 'Data Scientist',
-      company: 'Innovation Labs',
-      period: '2020 - 2023',
-      description:
-        'Developed predictive models and conducted statistical analysis. Improved model accuracy by 35%.',
-      type: 'work',
+      company: 'University of Connecticut',
+      period: 'Oct 2024 - May 2025',
+      highlights: [
+        'Built a predictive model pipeline that improved decision accuracy from 70% to 88%, helping admission teams identify strong applicants more efficiently while reducing review workload by 30%.',
+        'Performed detailed analysis on 5,000+ applicant profiles to understand which factors matter most for admission success, improving overall accuracy by 25%.',
+        'Created executive dashboards that transformed complex model outputs into actionable insights, boosting stakeholder adoption by 40%.',
+      ],
     },
     {
-      title: 'AI Engineer',
-      company: 'Tech Startup',
-      period: '2019 - 2020',
-      description:
-        'Built NLP pipelines and implemented deep learning solutions for production systems.',
-      type: 'work',
+      title: 'Senior AI Engineer',
+      company: 'Data Engine',
+      period: 'Jan 2023 - Jul 2024',
+      highlights: [
+        'Led ML initiatives that earned Rising Star and Client Hero awards, delivering significant improvements to customer experience across enterprise platforms.',
+        'Built a personalization engine that learned user preferences and ranked content intelligently, improving engagement metrics by 28% and model performance from 0.71 to 0.84 AUC.',
+        'Engineered real-time data pipelines handling 100,000+ events per hour, cutting latency in half and enabling instant personalized experiences at scale.',
+        'Developed document classification systems using modern NLP techniques, improving search quality by 22% and reducing manual work by 35%.',
+        'Built experimentation infrastructure (MLflow, testing frameworks) that made it easy to test new ideas and measure impact, improving decision-making by 18%.',
+        'Led the backend team through a major cloud migration (AWS to Azure), improving reliability while reducing costs by 20%.',
+        'Optimized system architecture with smart caching and parallel processing, achieving 5× faster transactions and cutting API latency by 45%.',
+        'Delivered two critical production systems end-to-end with zero downtime, improving deployment reliability by 30%.',
+      ],
     },
     {
-      title: 'Masters in Data Science',
-      company: 'Prestigious University',
-      period: 'Completed Dec 2025',
-      description:
-        'Specialized in Machine Learning and Statistical Analysis. GPA: 3.8/4.0',
-      type: 'education',
+      title: 'Backend Engineer (Data & ML Systems)',
+      company: 'Freecharge Payments',
+      period: 'Dec 2021 - Jan 2023',
+      highlights: [
+        'Built scalable backend services using Spring Boot that handled high-volume transactions reliably, doubling system throughput capacity.',
+        'Implemented comprehensive testing (92% code coverage) that caught bugs early, reduced maintenance issues, and saved the team ~3 hours per week on bug fixes.',
+        'Shipped data-driven features that improved transaction success rates by 18%, directly impacting user experience and business metrics.',
+        'Built resilient APIs and data services that kept the platform stable while processing thousands of concurrent transactions.',
+      ],
+    },
+    {
+      title: 'Machine Learning Engineer',
+      company: 'Digii EduTech',
+      period: 'Jan 2020 - Nov 2021',
+      highlights: [
+        'Built intelligent recommendation systems that helped 80,000+ students get personalized financial guidance, improving engagement by 25%.',
+        'Developed fast ML APIs using Python and Java that responded in milliseconds, ensuring smooth user experiences even under heavy load.',
+        'Designed data analytics pipelines that turned student behavior into personalized recommendations, driving better product adoption and retention.',
+      ],
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6 },
-    },
-  }
-
   return (
-    <section
-      id="experience"
-      className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
-    >
+    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4 gradient-text">
-          Experience & Education
-        </h2>
-        <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-12" />
-      </motion.div>
+        <h2 className="text-4xl font-bold mb-12 text-white">Experience</h2>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="space-y-8"
-      >
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            className="group"
-          >
-            <div className="flex gap-6">
-              {/* Timeline icon */}
-              <div className="flex flex-col items-center">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  className="p-3 rounded-full glass mb-4 cursor-pointer"
-                >
-                  {exp.type === 'work' ? (
-                    <Briefcase className="w-6 h-6 text-blue-400" />
-                  ) : (
-                    <GraduationCap className="w-6 h-6 text-purple-400" />
-                  )}
-                </motion.div>
-                {index !== experiences.length - 1 && (
-                  <div className="w-1 h-20 bg-gradient-to-b from-blue-500 to-purple-600" />
-                )}
+        <div className="space-y-12">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="border-l-2 border-slate-600 pl-6 hover:border-blue-500 transition-colors"
+            >
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
+                <h3 className="text-xl font-bold text-white">{exp.title}</h3>
+                <span className="text-sm text-slate-400 font-mono">{exp.period}</span>
               </div>
-
-              {/* Content */}
-              <motion.div
-                whileHover={{ x: 10 }}
-                className="flex-1 pb-8 cursor-pointer"
-              >
-                <div className="glass rounded-lg p-6 hover:bg-blue-500/10 transition-all">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                    <h3 className="text-xl font-bold text-white">{exp.title}</h3>
-                    <span className="text-sm text-slate-400">{exp.period}</span>
-                  </div>
-                  <p className="text-blue-400 font-semibold mb-3">{exp.company}</p>
-                  <p className="text-slate-300">{exp.description}</p>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-        ))}
+              <p className="text-blue-400 font-semibold mb-4">{exp.company}</p>
+              <ul className="space-y-2">
+                {exp.highlights.map((highlight, hIndex) => (
+                  <li key={hIndex} className="text-slate-300 leading-relaxed flex gap-3">
+                    <span className="text-blue-400 font-bold mt-1">•</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
     </section>
   )
