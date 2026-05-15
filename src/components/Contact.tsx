@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Send } from 'lucide-react'
 import { useState } from 'react'
 
@@ -48,12 +48,14 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <section id="contact" className="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative">
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
+        className="relative z-10"
       >
         <h2 className="text-4xl font-bold mb-4 text-white">Get In Touch</h2>
         <p className="text-slate-400 text-lg mb-12">
@@ -62,15 +64,14 @@ const Contact = () => {
 
         {/* Contact Form */}
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-2xl mx-auto"
+          className="max-w-2xl mx-auto glass rounded-2xl p-8"
         >
             <form
               onSubmit={handleSubmit}
-              className="space-y-6 bg-slate-800/50 rounded-lg p-8 border border-slate-700"
+              className="space-y-6"
             >
               {/* Name Input */}
               <div>
@@ -130,26 +131,34 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={submitted}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-all disabled:opacity-50"
+                data-cursor-hover
               >
-                {submitted ? (
-                  <>
+                <AnimatePresence mode="wait">
+                  {submitted ? (
                     <motion.span
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 0.6 }}
+                      key="sent"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="flex items-center gap-2"
                     >
-                      ✓
+                      ✓ Message Sent!
                     </motion.span>
-                    Message Sent!
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    Send Message
-                  </>
-                )}
+                  ) : (
+                    <motion.span
+                      key="send"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="flex items-center gap-2"
+                    >
+                      <Send className="w-4 h-4" /> Send Message
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </motion.button>
             </form>
         </motion.div>

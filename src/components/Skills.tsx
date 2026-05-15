@@ -37,12 +37,13 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <section id="skills" className="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
+        className="relative z-10"
       >
         <h2 className="text-4xl font-bold mb-12 text-white">Technical Skills</h2>
 

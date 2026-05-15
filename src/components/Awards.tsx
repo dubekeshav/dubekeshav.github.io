@@ -5,37 +5,37 @@ import { Award } from 'lucide-react'
 const Awards = () => {
   const awards = [
     {
-      title: 'Rising Star Award',
-      issuer: 'Data Engine',
-      period: '2024',
-      description:
-        'Recognized for exceptional contributions in developing advanced machine learning pipelines and delivering data-driven solutions that generated measurable business impact. Demonstrated strong technical acumen in designing scalable systems for high-volume data processing and real-time ML inference.',
-    },
-    {
-      title: 'Client Hero Award',
-      issuer: 'Data Engine',
-      period: '2023',
-      description:
-        'Awarded for delivering transformative data-driven solutions that directly contributed to client success and measurable business outcomes. Showcased expertise in translating complex analytical challenges into actionable insights using advanced statistical modeling and machine learning techniques.',
-    },
-    {
-      title: 'Top 3 Finish',
-      issuer: 'Freecharge Hackathon',
-      period: '2022',
-      description:
-        'Achieved top-3 finish in a competitive hackathon focused on fintech innovations. Developed a machine learning solution for fraud detection and risk assessment, demonstrating proficiency in building production-grade systems under time constraints with real-world financial data.',
-    },
-    {
-      title: '5th Place Finish',
-      issuer: 'VIT Hack (graVITas 2019)',
-      period: '2019',
-      description:
-        'Placed 5th in a prestigious 36-hour mega hackathon with industry-relevant problem statements from leading partners including Honeywell, HPE, and Autodesk. Built an end-to-end solution showcasing full-stack capabilities in problem-solving, system design, and rapid prototyping under competitive conditions.',
-    },
+  title: 'Rising Star Award',
+  issuer: 'Data Engine',
+  period: '2023',
+  description:
+    'Recognized for rapidly scaling ownership across data-driven product and backend engineering development, delivering high-impact solutions early in my tenure.',
+},
+{
+  title: 'Client Hero Award',
+  issuer: 'Data Engine',
+  period: '2024',
+  description:
+    'Awarded for leading critical system design, client-facing initiatives and delivering solutions that directly improved operational efficiency and customer outcomes.',
+},
+{
+  title: 'Top 3 Finish',
+  issuer: 'Freecharge Hackathon',
+  period: '2022',
+  description:
+    'Built a fintech solution in a couple of days and secured a top-3 finish among 32 engineering teams during Freecharge’s internal hackathon.',
+},
+{
+  title: '5th Place Finish',
+  issuer: 'VIT Hack (graVITas)',
+  period: '2019',
+  description:
+    'Placed 5th in a 36-hour national hackathon by building an end-to-end product solution for real-world enterprise problem statements.',
+}
   ]
 
   return (
-    <section id="awards" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+    <section id="awards" className="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
