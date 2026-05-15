@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, Code2, BookOpen, Zap } from 'lucide-react'
-import { staggerContainer, itemVariants } from '../utils/motionVariants'
 
 const containerVariants = {
   hidden: {},
@@ -17,14 +16,14 @@ const Profiles = () => {
 
     {
       name: 'GitHub',
-      url: 'https://github.com/dubeykeshav98',
+      url: 'https://github.com/dubekeshav',
       icon: Github,
       color: 'text-slate-300 hover:text-white hover:bg-slate-700',
       description: 'Open-source contributions & project repositories',
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/keshav-dube',
+      url: 'https://linkedin.com/in/dubekeshav',
       icon: Linkedin,
       color: 'text-blue-400 hover:text-blue-300 hover:bg-blue-950',
       description: 'Professional experience & endorsements',
